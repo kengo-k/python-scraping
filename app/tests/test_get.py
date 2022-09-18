@@ -9,7 +9,6 @@ from lib.get import exec as get
 HOST = "localhost"
 PORT = 3000
 URL = f"http://{HOST}:{PORT}/test.html"
-print(URL)
 
 class Server(HTTPServer):
   def run(self):
@@ -38,3 +37,14 @@ class TestGet(unittest.TestCase):
       result = get(playwright, args)
       self.assertEqual(result, "/foo.html")
 
+  def test_attribute_by_content(self):
+    with sync_playwright() as playwright:
+      args = self.parser.parse_args([URL,  "a:has-text('foo')", '-a', 'href'])
+      result = get(playwright, args)
+      self.assertEqual(result, "/foo.html")
+
+  def test_content(self):
+    with sync_playwright() as playwright:
+      args = self.parser.parse_args([URL,  "a[id='link1']", '-c'])
+      result = get(playwright, args)
+      self.assertEqual(result, "foo")
