@@ -9,3 +9,4 @@ RUN \
     playwright install-deps
 
 ENTRYPOINT ["/app/docker-entrypoint.sh"]
+CMD ["python", "/app/main.py"]
