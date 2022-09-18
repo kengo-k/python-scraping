@@ -23,7 +23,3 @@ def run(playwright, page_url):
 
     context.close()
     browser.close()
-
-with sync_playwright() as playwright:
-    page_url = "http://gitbucket.mynet/private/ssh/blob/master/install.sh"
-    run(playwright, page_url)

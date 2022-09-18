@@ -1,2 +1,2 @@
 #!/bin/sh
-python /app/src/test.py
+python /app/main.py
