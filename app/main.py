@@ -5,4 +5,5 @@ from lib.get import exec as get
 with sync_playwright() as playwright:
     parser = get_parser()
     args = parser.parse_args()
-    get(playwright, args)
+    value = get(playwright, args)
+    print(value)

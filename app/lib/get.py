@@ -10,10 +10,10 @@ def exec(playwright, args):
     page = context.new_page()
     page.goto(args.url)
 
-    raw_button_loc = page.locator(args.selector)
-    raw_link = raw_button_loc.get_attribute(args.attribute)
-
-    print(raw_link)
+    loc = page.locator(args.selector)
+    value = loc.get_attribute(args.attribute)
 
     context.close()
     browser.close()
+
+    return value
