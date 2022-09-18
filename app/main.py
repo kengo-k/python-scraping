@@ -11,7 +11,7 @@ def main():
       print(message)
       return
     value = get(playwright, args)
-    print(value)
+    print(value, end="")
 
 if __name__ == '__main__':
   main()
