@@ -1,7 +1,6 @@
 FROM python:3-slim-bullseye
 
 WORKDIR /app
-COPY .netrc /root
 
 RUN \
     chmod +x /app/docker-entrypoint.sh; \
